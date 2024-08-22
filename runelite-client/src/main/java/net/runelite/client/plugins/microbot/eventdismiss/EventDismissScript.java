@@ -5,9 +5,9 @@ import net.runelite.client.plugins.microbot.Microbot;
 import net.runelite.client.plugins.microbot.Script;
 import net.runelite.client.plugins.microbot.util.dialogues.Rs2Dialogue;
 import net.runelite.client.plugins.microbot.util.inventory.Rs2Inventory;
+import net.runelite.client.plugins.microbot.util.math.Random;
 import net.runelite.client.plugins.microbot.util.npc.Rs2Npc;
 
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class EventDismissScript extends Script {
@@ -98,14 +98,16 @@ public class EventDismissScript extends Script {
     }
     private void dismissNpc(NPC npc) {
         // Interact with NPC to dismiss it
+        sleep(Random.random(500, 3000));
         Rs2Npc.interact(npc, "Dismiss");
         Microbot.pauseAllScripts = false;
     }
 
     private void talkToNPC(NPC npc) {
         // Interact with NPC to claim lamp
+        sleep(Random.random(500, 3000));
         Rs2Npc.interact(npc, "Talk-to");
-        sleep(1200);
+        sleep(Random.random(1000, 2000));
         Rs2Dialogue.clickContinue();
         Microbot.pauseAllScripts = false;
     }
